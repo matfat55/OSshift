@@ -9,6 +9,23 @@
 - Include clear section headers for easy navigation
 - Use checklists for tracking progress items
 
+### Nomenclature
+
+- Use PascalCase for classes.
+- Use camelCase for variables, functions, and methods.
+- Use kebab-case for file and directory names.
+- Use UPPERCASE for environment variables.
+  - Avoid magic numbers and define constants.
+- Start each function with a verb.
+- Use verbs for boolean variables. Example: isLoading, hasError, canDelete, etc.
+- Use complete words instead of abbreviations and correct spelling.
+  - Except for standard abbreviations like API, URL, etc.
+  - Except for well-known abbreviations:
+    - i, j for loops
+    - err for errors
+    - ctx for contexts
+    - req, res, next for middleware function parameters
+
 ### Development Workflow
 
 - Document all significant changes in activeContext.md
@@ -37,6 +54,7 @@
 ## Tool Usage
 
 - Document all third-party libraries and their purposes
+- Use pnpm to install packages, do not add them to package.json
 - Prefer established libraries for security-critical functions
 - Minimize dependencies to keep the application lightweight
 

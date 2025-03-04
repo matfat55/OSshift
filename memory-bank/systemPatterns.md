@@ -55,7 +55,7 @@ OSshift is designed as a lightweight desktop application with the following arch
 
 ## Component Relationships
 
-```
+```ascii
 [Global Hotkey System] ←→ [Main Application Window]
          ↑                           ↓
          |                [Chat Interface]

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-OSshift is a desktop application designed to provide users with an always-accessible AI assistant on Windows systems. It aims to make AI assistance seamlessly integrated into the user's workflow without requiring constant browser access or switching between applications.
+OSshift is a desktop application designed to provide users with an always-accessible AI assistant. It aims to make AI assistance seamlessly integrated into the user's workflow without requiring constant browser access or switching between applications.
 
 ## Problems Solved
 

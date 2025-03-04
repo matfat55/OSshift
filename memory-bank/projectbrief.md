@@ -2,7 +2,7 @@
 
 ## brief description
 
-Open source shift is a desktop project. Currently only planned for Windows. It's a software that's always on your window, in a small window. It can be hidden, and brought back with a press of right shift. It's an ai assistant. The window is a chat panel, in which the user may talk to an ai. The user may highlight text, then press right shift, and it will be sent as context. The ai can respond appropriately. The ai usage is client side, they provide their own API keys
+Open source shift is a desktop project. It uses electron, and will be cross-platform. It's a software that's always on your window, in a small window. It can be hidden, and brought back with a double-press of right shift. It's an ai assistant. The window is a chat panel, in which the user may talk to an ai. The user may highlight text, then press right shift, and it will be sent as context. The ai can respond appropriately. The ai usage is client side, they provide their own API keys and select their own models.
 
 ## Stack
 
