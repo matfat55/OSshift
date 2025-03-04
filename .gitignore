@@ -1,3 +1,5 @@
 #memory-bank/
 #.clinerules
 .aider*
+node_modules/
+dist/

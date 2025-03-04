@@ -4,7 +4,7 @@
 
 ### Frontend/UI
 
-- **Framework**: Not yet specified, likely Electron, WPF, or similar desktop application framework
+- **Framework**: Electron
 - **UI Components**: Custom lightweight components for minimal footprint
 - **Styling**: Minimal, non-intrusive design with potential for theming
 
