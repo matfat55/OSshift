@@ -4,13 +4,13 @@
 
 ### Frontend/UI
 
-- **Framework**: Electron
+- **Framework**: Electron, react
 - **UI Components**: Custom lightweight components for minimal footprint
 - **Styling**: Minimal, non-intrusive design with potential for theming
 
 ### Backend/Core
 
-- **Runtime**: Windows-specific runtime (details to be determined)
+- **Runtime**: cross platform with electron, to be determined
 - **Global Hotkey System**: System-level keyboard hook for capturing right shift key
 - **State Management**: Local state management for application configuration
 
@@ -30,7 +30,6 @@
 
 ### Requirements
 
-- Windows development environment
 - Appropriate IDE for the chosen technology stack
 - Access to AI provider documentation for API integration
 

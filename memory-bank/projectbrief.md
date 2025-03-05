@@ -6,4 +6,4 @@ Open source shift is a desktop project. It uses electron, and will be cross-plat
 
 ## Stack
 
-Electron, Typescript
+Electron, Typescript, React
