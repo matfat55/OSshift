@@ -1,4 +1,5 @@
 import { BrowserWindow, screen } from "electron"
+import path from "path"
 
 // Window dimensions
 const WINDOW_WIDTH = 400
@@ -26,7 +27,7 @@ export const createMainWindow = (): BrowserWindow => {
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: true,
-			preload: require("path").join(__dirname, "../preload/preload.js"),
+			preload: path.join(__dirname, "../preload/preload.js"),
 		},
 	})
 
