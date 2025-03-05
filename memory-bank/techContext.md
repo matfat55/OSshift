@@ -80,6 +80,8 @@
   - HTTP client libraries
   - Encryption libraries
   - Configuration management
+  
+  <!-- TODO: Document all third-party libraries and their purposes -->
 
 ### System Requirements
 

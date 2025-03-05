@@ -4,6 +4,8 @@
   "description": "An open source ai assistant, usable with the press of a button",
   "main": "index.js",
   "dependencies": {
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "7zip-bin": "^5.2.0",
     "abbrev": "^1.1.1",
     "agent-base": "^7.1.3",
@@ -243,6 +245,8 @@
     "pump": "^3.0.2",
     "punycode": "^2.3.1",
     "quick-lru": "^5.1.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "read-binary-file-arch": "^1.0.6",
     "readable-stream": "^3.6.2",
     "readdir-glob": "^1.1.3",
@@ -276,9 +280,9 @@
     "sprintf-js": "^1.1.3",
     "ssri": "^9.0.1",
     "stat-mode": "^1.0.0",
+    "string_decoder": "^1.3.0",
     "string-width": "^4.2.3",
     "string-width-cjs": "^4.2.3",
-    "string_decoder": "^1.3.0",
     "strip-ansi": "^6.0.1",
     "strip-ansi-cjs": "^6.0.1",
     "sumchecker": "^3.0.1",
@@ -316,9 +320,9 @@
     "yocto-queue": "^0.1.0",
     "zip-stream": "^4.1.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -333,5 +337,12 @@
   "bugs": {
     "url": "https://github.com/matfat55/OSshift/issues"
   },
-  "homepage": "https://github.com/matfat55/OSshift#readme"
+  "homepage": "https://github.com/matfat55/OSshift#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.26.0"
+  }
 }
