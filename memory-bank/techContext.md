@@ -76,12 +76,13 @@
 
 - To be determined based on implementation choices
 - Likely to include:
-  - UI framework components
-  - HTTP client libraries
-  - Encryption libraries
-  - Configuration management
-  
-  <!-- TODO: Document all third-party libraries and their purposes -->
+
+    - UI framework components
+    - HTTP client libraries
+    - Encryption libraries
+    - Configuration management
+
+    <!-- TODO: Document all third-party libraries and their purposes -->
 
 ### System Requirements
 

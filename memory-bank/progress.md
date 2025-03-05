@@ -50,27 +50,31 @@
 ## Milestones
 
 1. **Planning Phase** (Current)
-   - Complete project documentation
-   - Finalize technology decisions
-   - Set up development environment
+
+    - Complete project documentation
+    - Finalize technology decisions
+    - Set up development environment
 
 2. **Prototype Phase**
-   - Implement global hotkey detection
-   - Create basic UI window
-   - Establish show/hide functionality
+
+    - Implement global hotkey detection
+    - Create basic UI window
+    - Establish show/hide functionality
 
 3. **Core Functionality Phase**
-   - Implement chat interface
-   - Add AI provider integration
-   - Create configuration system
+
+    - Implement chat interface
+    - Add AI provider integration
+    - Create configuration system
 
 4. **Polish Phase**
-   - Add user preferences
-   - Implement theming
-   - Create installer
-   - Add startup options
+
+    - Add user preferences
+    - Implement theming
+    - Create installer
+    - Add startup options
 
 5. **Release Phase**
-   - Testing and bug fixes
-   - Documentation
-   - Initial release
+    - Testing and bug fixes
+    - Documentation
+    - Initial release

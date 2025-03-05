@@ -7,29 +7,33 @@ OSshift is designed as a lightweight desktop application with the following arch
 ### Core Components
 
 1. **Main Application Window**
-   - Small, persistent window
-   - Toggleable visibility (via right shift key)
-   - Contains the chat interface
+
+    - Small, persistent window
+    - Toggleable visibility (via right shift key)
+    - Contains the chat interface
 
 2. **Global Hotkey System**
-   - Listens for right shift key press
-   - Toggles application visibility
-   - Operates at system level to work regardless of focus
+
+    - Listens for right shift key press
+    - Toggles application visibility
+    - Operates at system level to work regardless of focus
 
 3. **Chat Interface**
-   - Text input area for user queries
-   - Display area for AI responses
-   - Minimal UI controls
+
+    - Text input area for user queries
+    - Display area for AI responses
+    - Minimal UI controls
 
 4. **AI Integration Layer**
-   - Handles API key management
-   - Manages connections to AI providers
-   - Processes requests and responses
+
+    - Handles API key management
+    - Manages connections to AI providers
+    - Processes requests and responses
 
 5. **Configuration System**
-   - Stores user preferences
-   - Manages API keys securely
-   - Persists application state
+    - Stores user preferences
+    - Manages API keys securely
+    - Persists application state
 
 ## Design Patterns
 
