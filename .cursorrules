@@ -1,0 +1,68 @@
+# OSshift Project Rules
+
+## Project Patterns
+
+### Documentation Standards
+
+- Memory bank files should be kept up-to-date with all project decisions
+- Use Markdown for all documentation
+- Include clear section headers for easy navigation
+- Use checklists for tracking progress items
+
+### Nomenclature
+
+- Use PascalCase for classes.
+- Use camelCase for variables, functions, and methods.
+- Use kebab-case for file and directory names.
+- Use UPPERCASE for environment variables.
+  - Avoid magic numbers and define constants.
+- Start each function with a verb.
+- Use verbs for boolean variables. Example: isLoading, hasError, canDelete, etc.
+- Use complete words instead of abbreviations and correct spelling.
+  - Except for standard abbreviations like API, URL, etc.
+  - Except for well-known abbreviations:
+    - i, j for loops
+    - err for errors
+    - ctx for contexts
+    - req, res, next for middleware function parameters
+
+### Development Workflow
+
+- Document all significant changes in activeContext.md
+- Update progress.md with completed items and new tasks
+- Review memory bank before starting new development work
+
+### Project Structure
+
+- Organize code by functional components
+- Keep UI logic separate from business logic
+- Maintain clear separation between AI integration and application core
+
+## User Preferences
+
+- Prefer concise, technical explanations
+- Focus on practical implementation details
+- Document architectural decisions with clear rationales
+
+## Implementation Guidelines
+
+- Prioritize minimal resource usage
+- Ensure responsive UI even during AI processing
+- Secure all user data, especially API keys
+- Design for extensibility to support multiple AI providers
+
+## Tool Usage
+
+- Document all third-party libraries and their purposes
+- Use pnpm to install packages, do not add them to package.json
+- Prefer established libraries for security-critical functions
+- Minimize dependencies to keep the application lightweight
+
+## Known Challenges
+
+- Global hotkey capture may require system-level permissions
+- Balancing UI responsiveness with AI processing time
+- Secure storage of API keys on the local system
+- Managing different AI provider response formats
+
+This file will be updated as we learn more about the project and establish additional patterns and preferences.

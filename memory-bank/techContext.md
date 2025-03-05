@@ -4,93 +4,123 @@
 
 ### Frontend/UI
 
-- **Framework**: Electron, react
+- **Framework**: Electron for desktop application
+- **UI Library**: React for component-based UI development
+- **Language**: TypeScript for type safety and better developer experience
+- **Styling**: CSS-in-JS solution (likely styled-components or emotion) for component styling
 - **UI Components**: Custom lightweight components for minimal footprint
-- **Styling**: Minimal, non-intrusive design with potential for theming
 
 ### Backend/Core
 
-- **Runtime**: cross platform with electron, to be determined
-- **Global Hotkey System**: System-level keyboard hook for capturing right shift key
-- **State Management**: Local state management for application configuration
+- **Runtime**: Node.js via Electron's main process
+- **Global Hotkey System**: Likely using electron-global-shortcut or iohook for cross-platform support
+- **State Management**: React Context API for UI state, electron-store for persistent configuration
+- **IPC**: Electron's IPC for communication between main and renderer processes
 
 ### AI Integration
 
-- **API Integration**: RESTful API clients for various AI providers
-- **Authentication**: Secure storage for user-provided API keys
-- **Request/Response Handling**: Asynchronous communication with AI services
+- **API Integration**: Axios or node-fetch for RESTful API clients to various AI providers
+- **Authentication**: Secure storage for user-provided API keys using electron-store with encryption
+- **Request/Response Handling**: Asynchronous communication with AI services using Promises/async-await
+- **Providers**: Initial support for OpenAI and Anthropic, with extensible architecture for more
 
 ### Data Storage
 
-- **Configuration Storage**: Local file-based or registry storage for settings
-- **Chat History**: Optional local storage for conversation history
-- **Security**: Encrypted storage for sensitive information (API keys)
+- **Configuration Storage**: electron-store for settings and configuration
+- **Chat History**: Local SQLite database or JSON storage via electron-store
+- **Security**: Encrypted storage for sensitive information (API keys) using electron-store's encryption or system keychain
 
 ## Development Setup
 
 ### Requirements
 
-- Appropriate IDE for the chosen technology stack
-- Access to AI provider documentation for API integration
+- Node.js (latest LTS version)
+- pnpm as package manager
+- Git for version control
+- VS Code or other IDE with TypeScript support
+- Electron DevTools for debugging
 
 ### Build Process
 
-- To be determined based on chosen framework and technologies
-- Likely to include bundling and packaging for Windows distribution
+- **Development**: Vite for fast development experience with hot module replacement
+- **Building**: electron-builder for packaging and distribution
+- **TypeScript**: tsc for type checking
+- **Linting**: ESLint with TypeScript rules
+- **Formatting**: Prettier for consistent code style
 
 ### Testing Strategy
 
-- Unit tests for core functionality
-- Integration tests for AI service connections
-- End-to-end tests for user workflows
+- **Unit Tests**: Jest for testing individual components and functions
+- **Integration Tests**: Spectron or Playwright for testing Electron app functionality
+- **End-to-End Tests**: Custom test suite for user workflows
+- **Manual Testing**: Focus on cross-platform compatibility and performance
 
 ## Technical Constraints
 
 ### Platform Limitations
 
-- Windows-only support initially
-- System-level access required for global hotkey functionality
-- Potential limitations based on chosen UI framework
+- **Initial Target**: Windows 10+ support
+- **Future Platforms**: macOS and Linux support planned
+- **System Access**: Requires system-level access for global hotkey functionality
+- **Permissions**: May require elevated permissions for certain features
 
 ### Performance Requirements
 
-- Minimal memory footprint when idle
-- Quick toggle response time (< 100ms)
-- Efficient handling of AI requests and responses
+- **Memory Usage**: <100MB RAM when idle
+- **CPU Usage**: Minimal CPU usage when idle (<1%)
+- **Toggle Response**: <100ms response time for show/hide toggle
+- **Startup Time**: <2 seconds from application launch to ready state
 
 ### Security Considerations
 
-- Secure storage of API keys
-- Local processing of user data where possible
-- Clear privacy policy regarding data handling
+- **API Keys**: Secure storage with encryption
+- **Data Privacy**: All processing happens locally when possible
+- **Network Security**: HTTPS for all API communications
+- **Update Security**: Signed updates to prevent tampering
 
 ## Dependencies
 
 ### External Services
 
-- AI provider APIs (user-supplied credentials)
-- Potentially telemetry or crash reporting services
+- **AI Providers**: OpenAI API, Anthropic API (user-supplied credentials)
+- **Telemetry**: Optional anonymous usage statistics (opt-in only)
 
 ### Third-Party Libraries
 
-- To be determined based on implementation choices
-- Likely to include:
+- **Core**:
 
-    - UI framework components
-    - HTTP client libraries
-    - Encryption libraries
-    - Configuration management
+    - electron: Desktop application framework
+    - react: UI library
+    - typescript: Type-safe JavaScript
+    - electron-store: Persistent storage
 
-    <!-- TODO: Document all third-party libraries and their purposes -->
+- **UI/UX**:
+
+    - styled-components or emotion: CSS-in-JS styling
+    - react-icons: Icon library
+
+- **Functionality**:
+
+    - iohook or electron-global-shortcut: Global hotkey detection
+    - axios or node-fetch: HTTP client for API requests
+    - electron-builder: Application packaging and distribution
+
+- **Development**:
+    - vite: Build tool and development server
+    - eslint: Code linting
+    - prettier: Code formatting
+    - jest: Testing framework
 
 ### System Requirements
 
-- Windows operating system (version requirements TBD)
-- Sufficient memory for AI response processing
-- Internet connection for AI service access
+- **OS**: Windows 10+ (initially), macOS and Linux (planned)
+- **Memory**: 4GB RAM minimum
+- **Storage**: 100MB free space
+- **Internet**: Required for AI service access
 
 ## Deployment Strategy
 
-- Standalone installer for Windows
-- Potential for auto-updates
-- Minimal installation footprint
+- **Distribution**: Standalone installer for Windows (.exe)
+- **Updates**: Automatic updates via electron-updater
+- **Installation**: User-level installation, no admin rights required
+- **Uninstallation**: Clean uninstall process that removes all application data
