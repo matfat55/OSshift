@@ -1,8 +1,8 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
-import electron from "vite-plugin-electron"
-import renderer from "vite-plugin-electron-renderer"
-import { resolve } from "path"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import electron from 'vite-plugin-electron'
+import renderer from 'vite-plugin-electron-renderer'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,26 +11,26 @@ export default defineConfig({
 		electron([
 			{
 				// Main process entry file
-				entry: "src/main/main.ts",
+				entry: 'src/main/main.ts',
 				vite: {
 					build: {
-						outDir: "dist/main",
+						outDir: 'dist/main',
 					},
 					define: {
-						'MAIN_WINDOW_VITE_DEV_SERVER_URL': JSON.stringify(process.env.VITE_DEV_SERVER_URL),
-						'MAIN_WINDOW_VITE_NAME': JSON.stringify('index.html')
-					}
+						MAIN_WINDOW_VITE_DEV_SERVER_URL: JSON.stringify(process.env.VITE_DEV_SERVER_URL),
+						MAIN_WINDOW_VITE_NAME: JSON.stringify('index.html'),
+					},
 				},
 			},
 			{
 				// Preload scripts
-				entry: "src/preload/preload.ts",
+				entry: 'src/preload/preload.ts',
 				onstart(options) {
 					options.reload()
 				},
 				vite: {
 					build: {
-						outDir: "dist/preload",
+						outDir: 'dist/preload',
 					},
 				},
 			},
@@ -39,11 +39,11 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
-			"@": resolve(__dirname, "src"),
+			'@': resolve(__dirname, 'src'),
 		},
 	},
 	build: {
-		outDir: "dist/renderer",
+		outDir: 'dist/renderer',
 	},
-	root: "src",
+	root: 'src',
 })

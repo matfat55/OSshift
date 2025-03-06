@@ -1,5 +1,5 @@
-import React, { useState, KeyboardEvent } from "react"
-import styled from "styled-components"
+import React, { useState, KeyboardEvent } from 'react'
+import styled from 'styled-components'
 
 interface ChatInputProps {
 	onSendMessage: (message: string) => void
@@ -55,18 +55,18 @@ const SendButton = styled.button`
 	}
 `
 
-const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, placeholder = "Type a message..." }) => {
-	const [message, setMessage] = useState("")
+const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, placeholder = 'Type a message...' }) => {
+	const [message, setMessage] = useState('')
 
 	const handleSend = () => {
 		if (message.trim()) {
 			onSendMessage(message)
-			setMessage("")
+			setMessage('')
 		}
 	}
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-		if (e.key === "Enter" && !e.shiftKey) {
+		if (e.key === 'Enter' && !e.shiftKey) {
 			e.preventDefault()
 			handleSend()
 		}

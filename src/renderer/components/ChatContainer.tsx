@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import { v4 as uuidv4 } from "uuid"
-import MessageList, { Message } from "./MessageList"
-import ChatInput from "./ChatInput"
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
+import MessageList, { Message } from './MessageList'
+import ChatInput from './ChatInput'
 
 const Container = styled.div`
 	display: flex;
@@ -16,7 +16,7 @@ const ChatContainer: React.FC = () => {
 		{
 			id: uuidv4(),
 			content: "Hello! I'm OSshift. How can I help you today?",
-			sender: "ai",
+			sender: 'ai',
 			timestamp: new Date(),
 		},
 	])
@@ -30,7 +30,7 @@ const ChatContainer: React.FC = () => {
 				const userMessage: Message = {
 					id: uuidv4(),
 					content: text,
-					sender: "user",
+					sender: 'user',
 					timestamp: new Date(),
 				}
 				setMessages((prevMessages) => [...prevMessages, userMessage])
@@ -42,8 +42,8 @@ const ChatContainer: React.FC = () => {
 						...prevMessages,
 						{
 							id: uuidv4(),
-							content: "I received your selected text. AI processing will be implemented soon!",
-							sender: "ai",
+							content: 'I received your selected text. AI processing will be implemented soon!',
+							sender: 'ai',
 							timestamp: new Date(),
 						},
 					])
@@ -61,7 +61,7 @@ const ChatContainer: React.FC = () => {
 		const userMessage: Message = {
 			id: uuidv4(),
 			content,
-			sender: "user",
+			sender: 'user',
 			timestamp: new Date(),
 		}
 
@@ -77,8 +77,8 @@ const ChatContainer: React.FC = () => {
 				...prevMessages,
 				{
 					id: uuidv4(),
-					content: "This is a placeholder response. AI integration will be implemented soon!",
-					sender: "ai",
+					content: 'This is a placeholder response. AI integration will be implemented soon!',
+					sender: 'ai',
 					timestamp: new Date(),
 				},
 			])

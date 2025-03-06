@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react"
-import styled from "styled-components"
+import React, { useRef, useEffect } from 'react'
+import styled from 'styled-components'
 
 export interface Message {
 	id: string
 	content: string
-	sender: "user" | "ai"
+	sender: 'user' | 'ai'
 	timestamp: Date
 }
 
@@ -27,14 +27,14 @@ const MessageItem = styled.div<{ isUser: boolean }>`
 	flex-direction: column;
 	max-width: 80%;
 	margin-bottom: 16px;
-	align-self: ${({ isUser }) => (isUser ? "flex-end" : "flex-start")};
+	align-self: ${({ isUser }) => (isUser ? 'flex-end' : 'flex-start')};
 `
 
 const MessageContent = styled.div<{ isUser: boolean }>`
 	padding: 12px 16px;
 	border-radius: 12px;
 	background-color: ${({ isUser, theme }) => (isUser ? theme.colors.primary : theme.colors.messageBackground)};
-	color: ${({ isUser, theme }) => (isUser ? "white" : theme.colors.text)};
+	color: ${({ isUser, theme }) => (isUser ? 'white' : theme.colors.text)};
 	font-size: 14px;
 	line-height: 1.5;
 	white-space: pre-wrap;
@@ -45,7 +45,7 @@ const MessageTime = styled.div<{ isUser: boolean }>`
 	font-size: 11px;
 	color: ${({ theme }) => theme.colors.textSecondary};
 	margin-top: 4px;
-	align-self: ${({ isUser }) => (isUser ? "flex-end" : "flex-start")};
+	align-self: ${({ isUser }) => (isUser ? 'flex-end' : 'flex-start')};
 `
 
 const LoadingIndicator = styled.div`
@@ -92,7 +92,7 @@ const LoadingDots = styled.div`
 `
 
 const formatTime = (date: Date): string => {
-	return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+	return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }
 
 const MessageList: React.FC<MessageListProps> = ({ messages, loading = false }) => {
@@ -107,9 +107,9 @@ const MessageList: React.FC<MessageListProps> = ({ messages, loading = false }) 
 	return (
 		<Container ref={containerRef}>
 			{messages.map((message) => (
-				<MessageItem key={message.id} isUser={message.sender === "user"}>
-					<MessageContent isUser={message.sender === "user"}>{message.content}</MessageContent>
-					<MessageTime isUser={message.sender === "user"}>{formatTime(message.timestamp)}</MessageTime>
+				<MessageItem key={message.id} isUser={message.sender === 'user'}>
+					<MessageContent isUser={message.sender === 'user'}>{message.content}</MessageContent>
+					<MessageTime isUser={message.sender === 'user'}>{formatTime(message.timestamp)}</MessageTime>
 				</MessageItem>
 			))}
 

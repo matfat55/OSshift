@@ -1,5 +1,5 @@
 interface ElectronAPI {
-	windowControl: (action: "minimize" | "maximize" | "close") => void
+	windowControl: (action: 'minimize' | 'maximize' | 'close') => void
 	toggleWindow: () => void
 	sendMessage: (channel: string, data: unknown) => void
 	receiveMessage: (channel: string, callback: (data: unknown) => void) => () => void

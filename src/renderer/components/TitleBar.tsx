@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 interface TitleBarProps {
 	title?: string
@@ -48,7 +48,7 @@ const WindowButton = styled.button`
 	}
 `
 
-const TitleBar: React.FC<TitleBarProps> = ({ title = "OSshift", onThemeToggle }) => {
+const TitleBar: React.FC<TitleBarProps> = ({ title = 'OSshift', onThemeToggle }) => {
 	return (
 		<TitleBarContainer>
 			<Title>{title}</Title>

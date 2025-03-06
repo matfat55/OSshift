@@ -1,5 +1,5 @@
-import { BrowserWindow, screen } from "electron"
-import path from "path"
+import { BrowserWindow, screen } from 'electron'
+import path from 'path'
 
 // Window dimensions
 const WINDOW_WIDTH = 400
@@ -28,23 +28,23 @@ export const createMainWindow = (): BrowserWindow => {
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: true,
-			preload: path.join(__dirname, "../preload/preload.js"),
+			preload: path.join(__dirname, '../preload/preload.js'),
 			sandbox: false, // Sometimes needed to allow the preload script to work correctly
 		},
 	})
 
 	// Log when the window is ready to show
-	mainWindow.once("ready-to-show", () => {
-		console.log("Window is ready to show")
+	mainWindow.once('ready-to-show', () => {
+		console.log('Window is ready to show')
 	})
 
 	// Log loading errors
-	mainWindow.webContents.on("did-fail-load", (event, errorCode, errorDescription) => {
-		console.error("Failed to load:", errorCode, errorDescription)
+	mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
+		console.error('Failed to load:', errorCode, errorDescription)
 	})
 
 	// Prevent the window from being closed directly
-	mainWindow.on("close", (event) => {
+	mainWindow.on('close', (event) => {
 		event.preventDefault()
 		mainWindow.hide()
 	})
@@ -57,7 +57,7 @@ export const createMainWindow = (): BrowserWindow => {
  * @param window The BrowserWindow instance to toggle
  */
 export const toggleWindowVisibility = (window: BrowserWindow): void => {
-	console.log("Toggle window called. Current visibility:", window.isVisible())
+	console.log('Toggle window called. Current visibility:', window.isVisible())
 
 	if (window.isVisible()) {
 		window.hide()
