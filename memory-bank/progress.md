@@ -2,7 +2,7 @@
 
 ## Project Status
 
-**Current Phase**: Initial Implementation
+**Current Phase**: Initial Implementation - Initial files and environment setup
 
 ## What Works
 
@@ -11,7 +11,7 @@
 - Version control with Git set up
 - Basic configuration files (.prettierrc, .gitignore) added
 - Project initialized with pnpm
-- Electron with React and TypeScript set up
+- Electron with React and TypeScript set up (configuration only)
 - Build system configured
 - Main process files created (main.ts, window.ts, hotkeys.ts, ipc.ts)
 - Preload script created
@@ -21,24 +21,20 @@
 
 ## What's In Progress
 
-- Fixing Electron installation issues
-- Implementing global hotkey system
-- Creating the main application window
-- Implementing show/hide toggle functionality
 
 ## What's Left to Build
 
-### Project Setup (Next Priority)
+### Environment Setup (Highest Priority)
 
-- [x] Initialize project with pnpm
-- [x] Set up Electron with React and TypeScript
-- [x] Configure build system
+- [x] Fix Electron installation issues
+  - [x] Downgrade Node.js to a compatible version
+  - [x] Verify application startup in development mode
 - [ ] Set up development environment with hot reloading
 
 ### Core Functionality
 
 - [ ] Global hotkey system (right shift detection)
-    - [ ] Research and select appropriate library
+    - [ ] Research and select appropriate library (iohook or electron-global-shortcut)
     - [ ] Implement key detection
     - [ ] Handle double-press logic
 - [ ] Main application window
@@ -88,34 +84,29 @@
 
 ## Known Issues
 
-- Electron installation issues, possibly related to Node.js version compatibility (current Node.js version is v22.14.0)
+- Electron installation issues with Node.js v22.14.0 - need to downgrade to a compatible version
 - Need to research cross-platform global hotkey solutions
 - Need to determine best approach for text selection capture across applications
 
 ## Milestones
 
-1. **Planning Phase** (Current)
-
-    - Complete project documentation ✓
-    - Finalize technology decisions ✓
-    - Set up development environment (Next)
+1. **Development Environment Setup** (Current)
+   - Fix Electron installation issues
+   - Ensure application can run in development mode
 
 2. **Prototype Phase**
-
     - Implement global hotkey detection
     - Create basic UI window
     - Establish show/hide functionality
     - Basic chat interface
 
 3. **Core Functionality Phase**
-
     - Implement text selection capture
     - Add AI provider integration
     - Create configuration system
     - Implement API key management
 
 4. **Polish Phase**
-
     - Add user preferences
     - Implement theming
     - Create installer
@@ -128,10 +119,10 @@
 
 ## Timeline Estimates
 
-- **Planning Phase**: 1-2 weeks
-- **Prototype Phase**: 2-3 weeks
-- **Core Functionality Phase**: 3-4 weeks
-- **Polish Phase**: 2-3 weeks
+- **Development Environment Setup**: 0.5 weeks
+- **Prototype Phase**: 1-2 weeks
+- **Core Functionality Phase**: 2-4 weeks
+- **Polish Phase**: 1-2 weeks
 - **Release Phase**: 1-2 weeks
 
-Total estimated time to initial release: 9-14 weeks
+Total estimated time to initial release: 6-11 weeks

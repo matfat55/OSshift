@@ -10,6 +10,23 @@ if (electronSquirrelStartup) {
 	app.quit()
 }
 
+// Prevent multiple instances of the app
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+	console.log('Another instance is already running. Quitting...')
+	app.quit()
+} else {
+	app.on('second-instance', () => {
+		// Someone tried to run a second instance, we should focus our window.
+		if (mainWindow) {
+			if (mainWindow.isMinimized()) mainWindow.restore()
+			mainWindow.show()
+			mainWindow.focus()
+		}
+	})
+}
+
 // Keep a global reference of the window object to prevent garbage collection
 let mainWindow: BrowserWindow | null = null
 let tray: Tray | null = null
@@ -65,7 +82,11 @@ const createTray = () => {
 			label: "Quit",
 			click: () => {
 				isQuitting = true
-				app.quit()
+				if (tray) {
+					tray.destroy()
+					tray = null
+				}
+				app.exit(0) // Force quit the application
 			},
 		},
 	])
@@ -106,4 +127,10 @@ app.on("activate", () => {
 app.on("before-quit", () => {
 	isQuitting = true
 	globalShortcut.unregisterAll()
+	
+	// Destroy tray icon if it exists
+	if (tray) {
+		tray.destroy()
+		tray = null
+	}
 })

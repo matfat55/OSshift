@@ -2,7 +2,7 @@
 
 ## Current Work Focus
 
-The project has moved from the planning phase to the initial implementation phase. We have set up the project structure with Electron, React, and TypeScript, and have created the basic UI components. We are currently facing issues with the Electron installation, which needs to be resolved before we can continue with the implementation of the core functionality.
+The project has moved from the planning phase to the initial implementation phase. We have set up the project structure with Electron, React, and TypeScript, and have created the basic UI components. The immediate priority is resolving the Electron installation issues, which is blocking further development.
 
 ## Recent Changes
 
@@ -19,22 +19,18 @@ The project has moved from the planning phase to the initial implementation phas
 - Established renderer process structure
 - Created UI components (TitleBar, ChatInput, MessageList, ChatContainer)
 - Implemented theme system
+- Fixed electron installation issues
 
 ## Next Steps
 
-1. **Fix Electron Installation Issues**
-
-    - Resolve the Electron installation issues (possibly by downgrading Node.js to a version compatible with Electron)
-    - Ensure the application can be started in development mode
-
-2. **Core Implementation**
+1. **Core Implementation**
 
     - Implement the global hotkey system for right shift detection
     - Create the main application window with basic UI
     - Develop the show/hide toggle functionality
     - Implement the chat interface
 
-3. **AI Integration**
+2. **AI Integration**
     - Implement API key management system
     - Create the AI provider integration layer
     - Develop secure storage for configuration
@@ -42,18 +38,24 @@ The project has moved from the planning phase to the initial implementation phas
 ## Active Decisions and Considerations
 
 - **Technology Stack**: We've decided on Electron, React, and TypeScript as the core technologies
-- **Global Hotkey Handling**: Need to research the best library for cross-platform global hotkey detection
+- **Global Hotkey Handling**: Need to research the best library for cross-platform global hotkey detection (iohook or electron-global-shortcut)
 - **Window Management**: Need to determine the optimal approach for creating a small, persistent window
 - **Secure Storage**: Evaluating options for secure API key storage (electron-store with encryption vs. system keychain)
 - **UI Design**: Planning a minimal, non-intrusive interface that can be easily toggled
-- **Electron Installation**: Need to resolve issues with Electron installation, possibly by downgrading Node.js to a version compatible with Electron (current Node.js version is v22.14.0)
 
-## Open Questions
+## Open Questions (and some answers from the dev)
 
-- What specific AI providers should be supported in the initial release?
-- Should chat history be stored locally by default?
-- What is the minimum Windows version that should be supported?
-- Should there be a visible indicator when the application is running in the background?
-- What customization options should be available to users?
-- How should we handle text selection capture across different applications?
-- What Node.js version is compatible with the Electron version we're using?
+- Q: What specific AI providers should be supported in the initial release?
+  - A: Openrouter's entire model selection, along with openai and anthropic.
+- Q: Should chat history be stored locally by default?
+  - A: Yes, for convenience and privacy.
+- Q: What is the minimum Windows version that should be supported?
+  - A: Windows 10.
+- Q: Should there be a visible indicator when the application is running in the background?
+  - A: Yes, in the system tray.
+- Q: Are there plans for MacOS and Linux support?
+  - A: Yes, we plan to support MacOS and Linux in the future, but the current focus for the initial release is on Windows.
+- Q: What customization options should be available to users?
+  - A: Customizable hotkeys, model selection, and theme options.
+- Q: How should we handle text selection capture across different applications?
+  - A: Use the native clipboard API to capture text selections.
