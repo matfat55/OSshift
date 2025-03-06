@@ -28,6 +28,7 @@ const createWindow = () => {
 	registerHotkeys(mainWindow)
 
 	// Load the index.html of the app
+	const MAIN_WINDOW_VITE_DEV_SERVER_URL = process.env.VITE_DEV_SERVER_URL
 	if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
 		mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL)
 	} else {

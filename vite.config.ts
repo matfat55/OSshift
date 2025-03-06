@@ -16,6 +16,10 @@ export default defineConfig({
 					build: {
 						outDir: "dist/main",
 					},
+					define: {
+						'MAIN_WINDOW_VITE_DEV_SERVER_URL': JSON.stringify(process.env.VITE_DEV_SERVER_URL),
+						'MAIN_WINDOW_VITE_NAME': JSON.stringify('index.html')
+					}
 				},
 			},
 			{
@@ -41,4 +45,5 @@ export default defineConfig({
 	build: {
 		outDir: "dist/renderer",
 	},
+	root: "src",
 })

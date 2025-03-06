@@ -41,7 +41,7 @@ export const lightTheme: Theme = {
 		disabled: "#cccccc",
 		error: "#dc3545",
 		success: "#28a745",
-	}
+	},
 }
 
 // Dark theme
@@ -64,5 +64,5 @@ export const darkTheme: Theme = {
 		disabled: "#555555",
 		error: "#dc3545",
 		success: "#28a745",
-	}
+	},
 }

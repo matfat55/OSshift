@@ -1,69 +1,81 @@
 {
-	"name": "osshift",
-	"version": "0.1.0",
-	"description": "A lightweight desktop AI assistant with global hotkey access",
-	"main": "dist/main/main.js",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"lint": "eslint .  --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview",
-		"start": "electron .",
-		"package": "electron-builder build --win --publish never",
-		"make": "npm run build && npm run package"
-	},
-	"author": "",
-	"license": "MIT",
-	"devDependencies": {
-		"@eslint/js": "^9.21.0",
-		"@types/node": "^20.11.19",
-		"@types/react": "^18.2.55",
-		"@types/react-dom": "^18.2.19",
-		"@types/uuid": "^10.0.0",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
-		"@vitejs/plugin-react": "^4.2.1",
-		"electron": "^35.0.0",
-		"electron-builder": "^24.9.1",
-		"eslint": "^8.57.1",
-		"eslint-plugin-react": "^7.37.4",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-react-refresh": "^0.4.5",
-		"globals": "^16.0.0",
-		"typescript": "^5.2.2",
-		"typescript-eslint": "^8.26.0",
-		"vite": "^5.1.0",
-		"vite-plugin-electron": "^0.15.5",
-		"vite-plugin-electron-renderer": "^0.14.5"
-	},
-	"dependencies": {
-		"electron-store": "^8.1.0",
-		"iohook": "^0.9.3",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"styled-components": "^6.1.8",
-		"uuid": "^11.1.0"
-	},
-	"build": {
-		"appId": "com.osshift.app",
-		"productName": "OSshift",
-		"files": [
-			"dist/**/*",
-			"node_modules/**/*"
-		],
-		"directories": {
-			"buildResources": "assets",
-			"output": "release"
-		},
-		"win": {
-			"target": [
-				"nsis"
-			]
-		}
-	},
-	"pnpm": {
-		"ignoredBuiltDependencies": [
-			"electron"
-		]
-	}
+    "name": "osshift",
+    "version": "0.1.0",
+    "description": "A lightweight desktop AI assistant with global hotkey access",
+    "main": "dist/main/main.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "lint": "eslint .  --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "start": "electron .",
+        "package": "electron-builder build --win --publish never",
+        "make": "npm run build && npm run package",
+        "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@codestoryai/component-tagger": "^1.0.11",
+        "@eslint/js": "^9.21.0",
+        "@types/electron-squirrel-startup": "^1.0.2",
+        "@types/node": "^20.11.19",
+        "@types/react": "^18.2.55",
+        "@types/react-dom": "^18.2.19",
+        "@types/uuid": "^10.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "electron": "^28.1.0",
+        "electron-builder": "^24.9.1",
+        "eslint": "^9.21.0",
+        "eslint-plugin-react": "^7.37.4",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "globals": "^16.0.0",
+        "prettier": "^3.5.3",
+        "typescript": "^5.2.2",
+        "typescript-eslint": "^8.26.0",
+        "vite": "^5.1.0",
+        "vite-plugin-electron": "^0.15.5",
+        "vite-plugin-electron-renderer": "^0.14.5"
+    },
+    "dependencies": {
+        "electron-squirrel-startup": "^1.0.1",
+        "electron-store": "^8.1.0",
+        "iohook": "^0.9.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "styled-components": "^6.1.8",
+        "uuid": "^11.1.0"
+    },
+    "build": {
+        "appId": "com.osshift.app",
+        "productName": "OSshift",
+        "files": [
+            "dist/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets",
+            "output": "release"
+        },
+        "win": {
+            "target": [
+                "nsis"
+            ]
+        }
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "electron",
+            "esbuild",
+            "iohook"
+        ],
+        "ignoredBuiltDependencies": [
+            "electron",
+            "esbuild",
+            "iohook"
+        ]
+    }
 }
