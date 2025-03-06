@@ -45,3 +45,6 @@ coverage/
 
 #ai
 .aider*
+.cursor*
+.clinerules
+memory-bank/
