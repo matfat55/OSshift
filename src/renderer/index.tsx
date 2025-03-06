@@ -10,7 +10,7 @@ import { useState, useEffect } from "react"
 console.log("Renderer process starting")
 
 const Root = () => {
-	const [theme, setTheme] = useState<string>("light")
+	const [theme, setTheme] = useState<string>("dark")
 
 	// Load theme from settings
 	useEffect(() => {

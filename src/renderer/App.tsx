@@ -28,14 +28,23 @@ const App: React.FC<AppProps> = ({ setTheme }) => {
 				const savedTheme = await window.electronAPI.getSetting("theme")
 				if (savedTheme === "dark") {
 					setIsDarkMode(true)
+					setTheme("dark")
+				} else if (savedTheme === "light") {
+					setIsDarkMode(false)
+					setTheme("light")
+				} else {
+					setIsDarkMode(true)
+					setTheme("dark")
 				}
 			} catch (error) {
 				console.error("Failed to load theme setting:", error)
+				setIsDarkMode(true)
+				setTheme("dark")
 			}
 		}
 
 		loadTheme()
-	}, [])
+	}, [setTheme])
 
 	// Handle theme toggle
 	const handleThemeToggle = () => {

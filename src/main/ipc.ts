@@ -17,14 +17,14 @@ const store = new ElectronStore({
 		settings: {
 			type: "object",
 			properties: {
-				theme: { type: "string", enum: ["light", "dark"], default: "light" },
+				theme: { type: "string", enum: ["light", "dark"], default: "dark" },
 				startOnBoot: { type: "boolean", default: false },
 				saveHistory: { type: "boolean", default: true },
 			},
 			default: {
-				theme: "light",
-				startOnBoot: false,
-				saveHistory: true,
+					theme: "dark",
+					startOnBoot: false,
+					saveHistory: true,
 			},
 		},
 	},
