@@ -10,7 +10,7 @@ const DOUBLE_PRESS_THRESHOLD = 500 // ms
  * @param mainWindow The main application window
  */
 export const registerHotkeys = (mainWindow: BrowserWindow): void => {
-
+	// Register a global shortcut for right shift key
 	globalShortcut.register("right shift", () => {
 		const now = Date.now()
 
