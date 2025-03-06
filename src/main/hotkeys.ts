@@ -11,7 +11,7 @@ const DOUBLE_PRESS_THRESHOLD = 500 // ms
  */
 export const registerHotkeys = (mainWindow: BrowserWindow): void => {
 	// Register a global shortcut for right shift key
-	globalShortcut.register("Shift+Right", () => {
+	globalShortcut.register("right shift", () => {
 		const now = Date.now()
 
 		// Check if this is a double press
