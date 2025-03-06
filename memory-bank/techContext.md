@@ -101,7 +101,7 @@
 
 - **Functionality**:
 
-  - iohook or electron-global-shortcut: Global hotkey detection
+  - node-global-key-listener: Global hotkey detection
   - axios or node-fetch: HTTP client for API requests
   - electron-builder: Application packaging and distribution
 

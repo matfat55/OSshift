@@ -39,7 +39,7 @@ export const createMainWindow = (): BrowserWindow => {
 	})
 
 	// Log loading errors
-	mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
+	mainWindow.webContents.on('did-fail-load', (_event, errorCode, errorDescription) => {
 		console.error('Failed to load:', errorCode, errorDescription)
 	})
 

@@ -15,6 +15,10 @@ export default defineConfig({
 				vite: {
 					build: {
 						outDir: 'dist/main',
+						rollupOptions: {
+							// External dependencies that shouldn't be bundled
+							external: ['iohook', 'electron-squirrel-startup'],
+						},
 					},
 					define: {
 						MAIN_WINDOW_VITE_DEV_SERVER_URL: JSON.stringify(process.env.VITE_DEV_SERVER_URL),
@@ -44,6 +48,9 @@ export default defineConfig({
 	},
 	build: {
 		outDir: 'dist/renderer',
+		commonjsOptions: {
+			dynamicRequireTargets: ['node_modules/iohook/**/*.node'],
+		},
 	},
 	root: 'src',
 })

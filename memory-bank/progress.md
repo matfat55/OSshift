@@ -18,9 +18,11 @@
 - Renderer process structure established
 - UI components created (TitleBar, ChatInput, MessageList, ChatContainer)
 - Theme system implemented
+- Fixed linting error in hotkeys.ts by replacing `any` type with a proper `IOHook` interface
 
 ## What's In Progress
 
+- Global hotkey system implementation using iohook
 
 ## What's Left to Build
 

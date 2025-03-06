@@ -22,6 +22,8 @@ The project has moved from the planning phase to the initial implementation phas
 - Implemented theme system
 - Fixed electron installation issues
 - Updated global hotkey registration to use 'right shift', in a hope to fix the errors
+- Fixed linting error by replacing `any` type with a proper `IOHook` interface in hotkeys.ts
+- Replaced iohook with node-global-key-listener for improved global hotkey detection
 
 ## Next Steps
 

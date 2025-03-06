@@ -5,8 +5,17 @@ import { setupIPC } from './ipc'
 import { registerHotkeys } from './hotkeys'
 import electronSquirrelStartup from 'electron-squirrel-startup'
 
-// Force development environment for debugging
-process.env.NODE_ENV = 'development'
+// Configure iohook path for production builds
+if (app.isPackaged) {
+	try {
+		// In production, iohook should load from the extraResources directory
+		const iohookPath = path.join(process.resourcesPath, 'builds')
+		process.env.IOHOOK_PATH = iohookPath
+		console.log('Set IOHOOK_PATH to:', iohookPath)
+	} catch (error) {
+		console.error('Failed to set iohook path:', error)
+	}
+}
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (electronSquirrelStartup) {
@@ -41,9 +50,6 @@ let appIsQuitting = false
 const createWindow = () => {
 	mainWindow = createMainWindow()
 
-	// Add this for debugging
-	mainWindow.webContents.openDevTools()
-
 	// Set up IPC communication
 	setupIPC(mainWindow)
 
@@ -53,21 +59,13 @@ const createWindow = () => {
 	// Load the index.html of the app
 	const MAIN_WINDOW_VITE_DEV_SERVER_URL = process.env.VITE_DEV_SERVER_URL
 	if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-		console.log('Loading from dev server:', MAIN_WINDOW_VITE_DEV_SERVER_URL)
 		mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL)
 	} else {
-		const filePath = path.join(__dirname, `../renderer/index.html`)
-		console.log('Loading from file path:', filePath)
-		mainWindow.loadFile(filePath)
+		mainWindow.loadFile(path.join(__dirname, `../renderer/index.html`))
 	}
 
-	// Show the window initially during development for debugging
-	if (process.env.NODE_ENV === 'development') {
-		mainWindow.show()
-	} else {
-		// Hide the window initially in production
-		mainWindow.hide()
-	}
+	// Hide the window initially
+	mainWindow.hide()
 
 	// Create tray icon
 	createTray()
@@ -80,16 +78,6 @@ const createWindow = () => {
 			return false
 		}
 		return true
-	})
-
-	// Log when the window is ready to show
-	mainWindow.once('ready-to-show', () => {
-		console.log('Window is ready to show')
-	})
-
-	// Log loading errors
-	mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
-		console.error('Failed to load:', errorCode, errorDescription)
 	})
 }
 
@@ -120,7 +108,6 @@ const createTray = () => {
 
 	// Show window on tray icon click
 	tray.on('click', () => {
-		console.log('Tray icon clicked. Current visibility:', mainWindow?.isVisible())
 		if (mainWindow?.isVisible()) {
 			mainWindow.hide()
 		} else {
