@@ -45,8 +45,8 @@
 - **Development**: Vite for fast development experience with hot module replacement
 - **Building**: electron-builder for packaging and distribution
 - **TypeScript**: tsc for type checking
-- **Linting**: ESLint with TypeScript rules
-- **Formatting**: Prettier for consistent code style
+- **Linting**: Biome
+- **Formatting**: Biome
 
 ### Testing Strategy
 
@@ -89,27 +89,27 @@
 
 - **Core**:
 
-    - electron: Desktop application framework
-    - react: UI library
-    - typescript: Type-safe JavaScript
-    - electron-store: Persistent storage
+  - electron: Desktop application framework
+  - react: UI library
+  - typescript: Type-safe JavaScript
+  - electron-store: Persistent storage
 
 - **UI/UX**:
 
-    - styled-components or emotion: CSS-in-JS styling
-    - react-icons: Icon library
+  - styled-components or emotion: CSS-in-JS styling
+  - react-icons: Icon library
 
 - **Functionality**:
 
-    - iohook or electron-global-shortcut: Global hotkey detection
-    - axios or node-fetch: HTTP client for API requests
-    - electron-builder: Application packaging and distribution
+  - iohook or electron-global-shortcut: Global hotkey detection
+  - axios or node-fetch: HTTP client for API requests
+  - electron-builder: Application packaging and distribution
 
 - **Development**:
-    - vite: Build tool and development server
-    - eslint: Code linting
-    - prettier: Code formatting
-    - jest: Testing framework
+  - vite: Build tool and development server
+  - eslint: Code linting
+  - prettier: Code formatting
+  - jest: Testing framework
 
 ### System Requirements
 

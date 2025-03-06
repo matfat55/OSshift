@@ -10,7 +10,8 @@ The project has moved from the planning phase to the initial implementation phas
 - Defined the project brief with basic requirements
 - Established product context, system patterns, and technical context
 - Set up version control with Git
-- Added configuration files (.prettierrc, .gitignore)
+- Added configuration files (.gitignore)
+- Switched from ESLint and Prettier to Biome
 - Initialized the project with pnpm
 - Set up Electron with React and TypeScript
 - Configured build tools
