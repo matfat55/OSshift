@@ -20,6 +20,7 @@ The project has moved from the planning phase to the initial implementation phas
 - Created UI components (TitleBar, ChatInput, MessageList, ChatContainer)
 - Implemented theme system
 - Fixed electron installation issues
+- Updated global hotkey registration to use 'right shift', in a hope to fix the errors
 
 ## Next Steps
 
@@ -38,7 +39,7 @@ The project has moved from the planning phase to the initial implementation phas
 ## Active Decisions and Considerations
 
 - **Technology Stack**: We've decided on Electron, React, and TypeScript as the core technologies
-- **Global Hotkey Handling**: Need to research the best library for cross-platform global hotkey detection (iohook or electron-global-shortcut)
+- **Global Hotkey Handling**: Using Electron's built-in globalShortcut module with 'right shift' as the primary hotkey and 'CommandOrControl+Shift+O' as a debug alternative.
 - **Window Management**: Need to determine the optimal approach for creating a small, persistent window
 - **Secure Storage**: Evaluating options for secure API key storage (electron-store with encryption vs. system keychain)
 - **UI Design**: Planning a minimal, non-intrusive interface that can be easily toggled

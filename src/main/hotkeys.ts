@@ -10,8 +10,8 @@ const DOUBLE_PRESS_THRESHOLD = 500 // ms
  * @param mainWindow The main application window
  */
 export const registerHotkeys = (mainWindow: BrowserWindow): void => {
-	// Register a global shortcut for right shift key
-	globalShortcut.register("Shift+Right", () => {
+
+	globalShortcut.register("right shift", () => {
 		const now = Date.now()
 
 		// Check if this is a double press
@@ -31,6 +31,12 @@ export const registerHotkeys = (mainWindow: BrowserWindow): void => {
 			// First press - start the timer
 			lastRightShiftPress = now
 		}
+	})
+
+	// For debugging, add a secondary hotkey (Ctrl+Shift+O) that's easier to test
+	globalShortcut.register("CommandOrControl+Shift+O", () => {
+		toggleWindowVisibility(mainWindow)
+		console.log("Debug hotkey triggered - window toggled")
 	})
 }
 

@@ -30,9 +30,6 @@ const store = new ElectronStore({
 	},
 })
 
-// Flag to track if the app is quitting - shared with main process
-let isQuitting = false
-
 /**
  * Sets up IPC communication channels
  * @param mainWindow The main application window
@@ -50,7 +47,6 @@ export const setupIPC = (mainWindow: BrowserWindow): void => {
 
 	// Handle quit request from renderer
 	ipcMain.on("quit-app", () => {
-		isQuitting = true
 		app.exit(0) // Force quit the application
 	})
 

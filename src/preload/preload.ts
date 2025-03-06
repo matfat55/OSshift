@@ -1,10 +1,16 @@
 import { contextBridge, ipcRenderer } from "electron"
 
+// Send a log when preload script runs
+console.log("Preload script is running")
+
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld("electronAPI", {
 	// Window controls
-	toggleWindow: () => ipcRenderer.send("toggle-window"),
+	toggleWindow: () => {
+		console.log("Toggle window called from renderer")
+		ipcRenderer.send("toggle-window")
+	},
 	minimizeWindow: () => ipcRenderer.send("minimize-window"),
 	quitApp: () => ipcRenderer.send("quit-app"),
 
@@ -19,11 +25,12 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 	// Event listeners
 	onSelectedText: (callback: (text: string) => void) => {
-		ipcRenderer.on("selected-text", (_event, text) => callback(text))
+		const subscription = (_event: Electron.IpcRendererEvent, text: string) => callback(text)
+		ipcRenderer.on("selected-text", subscription)
 
 		// Return a function to remove the listener
 		return () => {
-			ipcRenderer.removeAllListeners("selected-text")
+			ipcRenderer.removeListener("selected-text", subscription)
 		}
 	},
 })

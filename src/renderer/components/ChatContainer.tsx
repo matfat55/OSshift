@@ -12,23 +12,42 @@ const Container = styled.div`
 `
 
 const ChatContainer: React.FC = () => {
-	const [messages, setMessages] = useState<Message[]>([])
+	const [messages, setMessages] = useState<Message[]>([
+		{
+			id: uuidv4(),
+			content: "Hello! I'm OSshift. How can I help you today?",
+			sender: "ai",
+			timestamp: new Date(),
+		},
+	])
 	const [loading, setLoading] = useState(false)
 
-	// Listen for messages from the main process
+	// Listen for selected text from the main process
 	useEffect(() => {
-		const unsubscribe = window.electron.receiveMessage("ai-response", (response: unknown) => {
-			if (typeof response === "string") {
-				setMessages((prevMessages) => [
-					...prevMessages,
-					{
-						id: uuidv4(),
-						content: response,
-						sender: "ai",
-						timestamp: new Date(),
-					},
-				])
-				setLoading(false)
+		const unsubscribe = window.electronAPI.onSelectedText((text: string) => {
+			if (text) {
+				// Add the selected text as a user message
+				const userMessage: Message = {
+					id: uuidv4(),
+					content: text,
+					sender: "user",
+					timestamp: new Date(),
+				}
+				setMessages((prevMessages) => [...prevMessages, userMessage])
+
+				// TODO: Send to AI for processing when AI integration is implemented
+				// For now, just add a placeholder response
+				setTimeout(() => {
+					setMessages((prevMessages) => [
+						...prevMessages,
+						{
+							id: uuidv4(),
+							content: "I received your selected text. AI processing will be implemented soon!",
+							sender: "ai",
+							timestamp: new Date(),
+						},
+					])
+				}, 1000)
 			}
 		})
 
@@ -51,8 +70,20 @@ const ChatContainer: React.FC = () => {
 		// Set loading state while waiting for AI response
 		setLoading(true)
 
-		// Send message to main process for AI processing
-		window.electron.sendMessage("user-message", content)
+		// TODO: Send message to AI for processing when AI integration is implemented
+		// For now, just add a placeholder response after a delay
+		setTimeout(() => {
+			setMessages((prevMessages) => [
+				...prevMessages,
+				{
+					id: uuidv4(),
+					content: "This is a placeholder response. AI integration will be implemented soon!",
+					sender: "ai",
+					timestamp: new Date(),
+				},
+			])
+			setLoading(false)
+		}, 1000)
 	}
 
 	return (

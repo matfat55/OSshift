@@ -1,9 +1,7 @@
-import React from "react"
-import styled, { ThemeProvider } from "styled-components"
+import React, { useState, useEffect } from "react"
+import styled from "styled-components"
 import TitleBar from "./components/TitleBar"
 import ChatContainer from "./components/ChatContainer"
-import { lightTheme, darkTheme } from "./styles/themes"
-import GlobalStyle from "./styles/GlobalStyle"
 
 interface AppProps {
 	setTheme: (theme: string) => void
@@ -21,22 +19,39 @@ const AppContainer = styled.div`
 `
 
 const App: React.FC<AppProps> = ({ setTheme }) => {
-	const isDarkMode = false
-	const theme = isDarkMode ? darkTheme : lightTheme
+	const [isDarkMode, setIsDarkMode] = useState(false)
 
-	// Add theme toggle handler
+	// Load theme setting on component mount
+	useEffect(() => {
+		const loadTheme = async () => {
+			try {
+				const savedTheme = await window.electronAPI.getSetting("theme")
+				if (savedTheme === "dark") {
+					setIsDarkMode(true)
+				}
+			} catch (error) {
+				console.error("Failed to load theme setting:", error)
+			}
+		}
+
+		loadTheme()
+	}, [])
+
+	// Handle theme toggle
 	const handleThemeToggle = () => {
-		setTheme(isDarkMode ? "light" : "dark")
+		const newTheme = isDarkMode ? "light" : "dark"
+		setIsDarkMode(!isDarkMode)
+		setTheme(newTheme)
+
+		// Save theme preference
+		window.electronAPI.setSetting("theme", newTheme).catch((error) => console.error("Failed to save theme setting:", error))
 	}
 
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyle theme={theme} />
-			<AppContainer>
-				<TitleBar title="OSshift" onThemeToggle={handleThemeToggle} />
-				<ChatContainer />
-			</AppContainer>
-		</ThemeProvider>
+		<AppContainer>
+			<TitleBar title="OSshift" onThemeToggle={handleThemeToggle} />
+			<ChatContainer />
+		</AppContainer>
 	)
 }
 
